@@ -4,12 +4,13 @@ const products = [
 	['mango',20],
 	['grape',18]
 ]
+
 function getPrice(products, seasonFunc){
 	let copiedProducts = JSON.parse( JSON.stringify(products));
 	let sum;
 		for(i=0, sum=0;i<copiedProducts.length;i++){
 			
-			if(seasonFunc){
+			if(typeof seasonFunc === `function`){
 				sum += seasonFunc(copiedProducts[i][1]);
 			} else{
 				sum += copiedProducts[i][1]
@@ -17,7 +18,9 @@ function getPrice(products, seasonFunc){
 		}
 		return sum;	
 }
+debugger
 function summerValue(value){
+	debugger
 	return value*0.8;	
 }
 function winterValue(value){
